@@ -5,7 +5,6 @@ test('Purchase flow', async ({ page }) => {
   const reservamosPage = new ReservamosPage(page);
 
   await reservamosPage.navigateTo();
-  //await reservamosPage.verifyPageLoaded();
 
   const origin = 'Ciudad de México Auditorio';
   await reservamosPage.fillOrigin(origin);
@@ -24,4 +23,7 @@ test('Purchase flow', async ({ page }) => {
   await reservamosPage.fillPassengerInfo(passengerName, passengerLastName, passengerEmail);
 
   await reservamosPage.clickNext();
+  await reservamosPage.fillCustomerInfo();
+  await reservamosPage.checkPurchaseCompletion();
+  
 });
